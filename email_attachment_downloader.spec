@@ -1,0 +1,53 @@
+# -*- mode: python ; coding: utf-8 -*-
+
+a = Analysis(
+    ['email_attachment_downloader.py'],
+    pathex=[],
+    binaries=[],
+    datas=[('dist/poppler', 'poppler')],
+    hiddenimports=[
+        "win32timezone",
+        "pythoncom",
+        "pywintypes",
+        "win32com",
+        "win32com.client",
+        "pdf2image",
+        "PIL",
+        "PIL.Image",
+        "requests",
+        "json",
+        "re",
+        "base64",
+        "shutil",
+        "threading",
+        "webbrowser",
+    ],
+    hookspath=[],
+    hooksconfig={},
+    runtime_hooks=[],
+    excludes=[],
+    noarchive=False,
+    optimize=0,
+)
+pyz = PYZ(a.pure)
+
+exe = EXE(
+    pyz,
+    a.scripts,
+    a.binaries,
+    a.datas,
+    [],
+    name='邮箱智能下载助手',
+    debug=False,
+    bootloader_ignore_signals=False,
+    strip=False,
+    upx=True,
+    upx_exclude=[],
+    runtime_tmpdir=None,
+    console=False,
+    disable_windowed_traceback=False,
+    argv_emulation=False,
+    target_arch=None,
+    codesign_identity=None,
+    entitlements_file=None,
+)
